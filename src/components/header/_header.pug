@@ -1,0 +1,29 @@
+include @/components/nav/_nav
+
+mixin header(data = {})
+  -
+    const {
+      logo = {
+        src: 'assets/images/logo.svg',
+        width: 140,
+        height: 12,
+        alt: 'loremipsum.net',
+        link: 'index.html'
+      },
+      navList = [],
+      phoneNr = ''
+    } = data
+
+  header.header
+    a.header__logo(href=logo.link target="_top")
+      img.header__logo-img(
+        src=logo.src,
+        width=logo.width,
+        height=logo.height,
+        alt=logo.alt
+      )
+    .header__menu
+      +nav({ list: navList, extraClass: 'header__nav' })
+      .header__contacts
+        a(href="tel:89851561714" target="_self").header__contacts-link.header__contacts-link--tel=phoneNr
+        a(href="" target="_blank").header__contacts-link.header__contacts-link--vk

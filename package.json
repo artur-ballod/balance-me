@@ -1,0 +1,33 @@
+{
+  "name": "balanceme",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist -r https://github.com/artur-ballod/balanceme.git"
+  },
+  "devDependencies": {
+    "@mish.dev/vite-convert-pug-in-html": "^2.0.0",
+    "esbuild": "0.25.11",
+    "gh-pages": "^6.3.0",
+    "pug": "^3.0.3",
+    "pug-plugin": "^6.0.0",
+    "sass-embedded": "^1.93.2",
+    "vite": "^7.1.7",
+    "vite-plugin-icons": "^0.6.5",
+    "vite-plugin-image-presets": "^0.3.4",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-pug": "^0.4.1",
+    "vite-plugin-sass": "^0.1.0",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-svg-icons-ng": "^1.5.1"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.3",
+    "lightningcss": "^1.30.2",
+    "simplebar": "^6.3.2"
+  }
+}
