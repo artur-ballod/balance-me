@@ -1,14 +1,44 @@
-include @/common/step-list/_step-list
-include @/common/form/_form
+mixin order(data = {})
+  -
+    const {
 
-mixin orderForm()
-  - const orderSteps = [{ icon: 'search', name: 'Lorem ipsum dolorsit amet' }, { icon: 'percent', name: 'Сonsecteturadipiscing elit' }, { icon: 'list', name: 'Sed do eiusmod tempor' }, { icon: 'envelope', name: 'Esse cillum doloreeu fugiat' }, { icon: 'money', name: 'Excepteur sint occaecat cupidatat non proident' }]
-  - const selectList = [{ value: 'option1', name: 'Вариант 1' }, { value: 'option2', name: 'Вариант 2' }, { value: 'option3', name: 'Вариант 3' }, { value: 'option4', name: 'Вариант 4' }, { value: 'option5', name: 'Вариант 5' }, { value: 'option6', name: 'Вариант 6' }, { value: 'option7', name: 'Вариант 7' }]
-  - const orderFields = [{ type: 'select', name: 'option', data: selectList },{ type: 'email', id: 'order-mail', label: '', placeholder: 'Ваш e-mail', required: true },{ type: 'text', id: 'order-name', label: '', placeholder: 'Ваше имя' },{ type: 'range', id: 'order-range', label: 'Sed ut perspiciatis, unde omnis iste natus', value: 50 },{ type: 'file', id: 'order-file', accept: '.pdf, .doc, .docx' }]
-
+    } = data;
   section.order#order
-    h2.order__title Оформление 
-      span.order__title--accent заказа
-    p.order__description Перед заполнением формы ознакомьтесь с нашей схемой работы!
-    +steps(orderSteps)
-    +form(orderFields)
+    h2.order__title Как оставить заявку?
+
+    .order__data
+      span.order__text.order__text--cta Просто позвоните нам по номеру
+      +button({
+        tag: 'a',
+        href: 'tel:89851561714',
+        text: '+7 985 156 17 14',
+        mod: 'link',
+        extraClass: 'order__tel',
+        attrs: { target: '_self' }
+      })
+    b.order__divider или
+    ol.order__list
+      li.order__item
+        p.order__text Скачайте анкету
+        +button({
+          tag: 'a',
+          href: 'files/document.doc',
+          text: 'Скачать анкету .doc',
+          mod: 'dark',
+          extraClass: 'order__download',
+          attrs: {download: 'MyDocument.doc', target: '_self' }
+        })
+      li.order__item
+        p.order__text Заполните анкету
+      li.order__item
+        p.order__text 
+          | Пришлите заполненную анкету на наш email: 
+          +button({
+            tag: 'a',
+            href: 'mailto:info@balanceme.ru',
+            text: 'info@balanceme.ru',
+            mod: 'mail',
+            extraClass: 'order__text-link',
+            attrs: { target: '_self' }
+          })
+          | и мы с вами свяжемся в кратчайшие сроки

@@ -1,0 +1,26 @@
+mixin servicesBlock(data = {})
+	-
+		const { 
+			items = [] 
+		} = data;
+	section.services
+		.services__head
+			h2.services__title Наши услуги
+			p.services__description Мы оказываем услуги в соответствии с самыми высокими стандартами качества, ведем учет в соответствии с новыми правилами по учету НДС, УСН и НДФЛ.
+			p.services__description Услуги, которые мы оказываем: бухгалтерия на аутсорсе, налоговый учет и СФР,  расчёт заработной платы и обязательных платежей, восстановление бухгалтерского учёта, консультации, статистическая отчетность. 
+		ol.services__list
+			each item in items
+				li.services__list-item
+					h3.services__subtitle= item.title
+					ul.services__sublist
+						each subitem in item.subitems
+							li.services__sublist-item= subitem
+
+					+button({
+						tag: 'a',
+						href: '#order',
+						text: 'Отправить заявку',
+						mod: 'dark',
+						extraClass: 'services__list-link',
+						attrs: { target: '_self' }
+					})

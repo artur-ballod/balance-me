@@ -1,15 +1,46 @@
-include @/common/list-with-icons/_list-with-icons
-
 mixin footer(data = {})
   -
     const year = data.year || new Date().getFullYear()
-    const company = data.company || 'LOREMIPSUM.NET'
-    const payments = data.paymentList || []
-    const contacts = data.contactsList || []
+    const company = 'BalanceMe'
 
   footer.footer
-    span.footer__copyright
-      | © #{year} «#{company}» Все&nbsp;права&nbsp;защищены.
+    a(href="index.html" target="_self").footer__logo
+      img(src="assets/images/logo.svg" width="" height="" alt="BalanceMe")
+    //- footer block
+    .footer__policy
+      ul.footer__list
+        li.footer__list-item
+          a(href="" target="_self").footer__list-link пользовательское соглашение
+        li.footer__list-item
+          a(href="" target="_self").footer__list-link политика конфиденциальности
+      span.footer__copyright
+        | © #{year} #{company}
+    .footer__menu
+      nav.footer__nav
+        ul.footer__list
+          li.footer__list-item
+            a(href="#top" target="_self").footer__list-link главная
+          li.footer__list-item
+            a(href="#services" target="_self").footer__list-link услуги
+          li.footer__list-item
+            a(href="#about" target="_self").footer__list-link о компании
+          li.footer__list-item
+            a(href="#team" target="_self").footer__list-link команда
+          li.footer__list-item
+            a(href="#order" target="_self").footer__list-link заявка
+          li.footer__list-item
+            a(href="#contacts" target="_self").footer__list-link контакты
 
-    +iconList(payments, 'list', 'footer__data', 'payment')
-    +iconList(contacts, 'list', 'footer__data', 'contacts')
+      ul.footer__list
+        li.footer__list-item
+          a(href="tel:89851561714" target="_blank").footer__list-link.footer__list-link--tel +7 985 156 17 14
+        li.footer__list-item
+          a(href="mailto:info@balanceme.ru" target="_blank").footer__list-link.footer__list-link--mail info@balanceme.ru
+
+      ul.footer__list
+        li.footer__list-item
+          a(href="" target="_blank").footer__list-icon.footer__list-icon--vk
+        li.footer__list-item
+          a(href="" target="_blank").footer__list-icon.footer__list-icon--dz info@balanceme.ru
+          
+    span.footer__origins разработка сайта GLADKOV COMPANY

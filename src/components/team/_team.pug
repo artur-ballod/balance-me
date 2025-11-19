@@ -1,0 +1,17 @@
+mixin team(data = {})
+	-
+		const { members = [] } = data;
+	section.team
+		h2.team__title Наша Команда
+		ul.team__list
+			each member in members
+				li.team__item
+					picture.team__frame
+						source(srcset=member.srcWebp1x + ' 1x, ' + member.srcWebp2x + ' 2x', type="image/webp")
+						img.team__frame-img(src=member.srcPng, alt=member.alt)
+					.team__data
+						h3.team__name= member.name
+						span.team__position= member.position
+						.team__about
+							each desc in member.descriptions
+								p.team__description !{desc}

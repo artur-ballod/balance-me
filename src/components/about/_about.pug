@@ -1,0 +1,40 @@
+mixin about(data = {})
+	-
+		const {
+			title = 'О компании',
+			descriptions = [],
+			listItems = [],
+			cta = {
+				subtitle: 'Позвольте нам справиться со сложностями, чтобы вы могли сосредоточиться на своем росте.',
+				button: {
+				tag: 'a',
+				href: '#services',
+				text: 'Наши услуги',
+				mod: 'light',
+				extraClass: 'about__link',
+				attrs: { target: '_self' }
+				}
+			}
+		} = data;
+	section.about
+		picture.about__frame
+			source(srcset="assets/images/about-lg.webp 1x, assets/images/about-lg_2x.webp 2x" type="image/webp")
+			img.about__frame-img(src="assets/images/about-lg.png" alt="about-image-1")
+		.about__data
+			h2.about__title= title
+				each desc in descriptions
+					p.about__description !{desc} 
+			ul.about__list
+				each item in listItems
+					li.about__item
+						p.about__description= item
+		.about__cta
+			h3.about__subtitle= cta.subtitle
+			+button({
+				tag: cta.button.tag,
+				href: cta.button.href,
+				text: cta.button.text,
+				mod: cta.button.mod,
+				extraClass: cta.button.extraClass,
+				attrs: cta.button.attrs
+			})

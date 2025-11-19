@@ -3,26 +3,16 @@ include @/common/button/_button
 mixin intro(data = {})
   -
     const {
-      subtitleParts = ['Lorem ipsum', 'dolor sit amet consectetur', 'adipiscing'],
+      subtitle = 'Бухгалтерское обслуживание и кадровый учет',
       description = 'At vero eos et accusamus et iusto odio dignissimos ducimus!',
       list = [],
       controls = []
     } = data
 
   section.intro
-    h1.intro__title
-      each part, i in subtitleParts
-        span.intro__title-part(class=i === 1 ? 'intro__title-part--accent' : '')= part
-
-    if description
+    .intro__data
+      h1.intro__title= subtitle
       p.intro__description= description
-
-    if list.length
-      ul.intro__list
-        each item in list
-          li.intro__list-item= item
-
-    if controls.length
       .intro__controls
         each btn in controls
           +button({
@@ -33,3 +23,13 @@ mixin intro(data = {})
             extraClass: btn.extraClass,
             attrs: { target: btn.target || '_self' }
           })
+    ul.intro__list
+      each introItem in list
+        li.intro__item
+          p.intro__description!= introItem
+    picture.intro__frame.intro__frame--lg
+      source(srcset="assets/images/intro-lg.webp 1x, assets/images/intro-lg_2x.webp 2x" type="image/webp")
+      img(src="assets/images/intro-lg.png" width="" height="" alt="intro-image-1").intro__frame-img
+    picture.intro__frame.intro__frame--sm
+      source(srcset="assets/images/intro-sm.webp 1x, assets/images/intro-sm_2x.webp 2x" type="image/webp")
+      img(src="assets/images/intro-sm.png" width="" height="" alt="intro-image-2").intro__frame-img

@@ -1,6 +1,11 @@
+include @/data/_data
 include @/components/header/_header
 include @/components/intro/_intro
+include @/components/services/_services
+include @/components/about/_about
+include @/components/team/_team
 include @/components/order/_order
+include @/components/contacts/_contacts
 include @/components/footer/_footer
 
 doctype html
@@ -9,6 +14,7 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="robots" content="noindex")
     meta(name="viewport" content="width=device-width,initial-scale=1")
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=e777018c-96c0-4a89-840c-4fc583b8f883&lang=ru_RU" type="text/javascript" defer)
     title Бухгалтерия
   body.body
     //- header
@@ -26,19 +32,22 @@ html(lang="en")
     //- main
     main.main
       +intro({
-        subtitleParts: ['Lorem ipsum ', 'dolor sit amet consectetur ', 'adipiscing'],
-        description: 'At vero eos et accusamus et iusto odio dignissimos ducimus!',
         list: [
-          'Totam rem aperiam eaque ipsa',
-          'Sit voluptatem accusantium doloremque laudantium',
-          'Sed ut perspiciatis, unde omnis iste natus error'
+          'Индивидуальный подход к каждому, никакого обслуживания «на потоке».',
+          'Опыт работы более 20 лет. Ведем учет профессионально и честно.',
+          'Только законные методы налогового и кадрового учета с учётом специфики вашего бизнеса.',
+          'Мы ведем учет коммерческих и некоммерческих организаций с любыми режимами налогообложения. '
         ],
         controls: [
-          { href: '#order', text: 'Заказать', mod: 'dark', extraClass: 'intro__controls-btn' },
-          { href: '#about', text: 'Подробнее', mod: 'light', extraClass: 'intro__controls-btn' }
+          { href: '#order', text: 'Подать заявку', mod: 'dark', extraClass: 'intro__controls-btn' },
+          { href: '#services', text: 'Наши услуги', mod: 'light', extraClass: 'intro__controls-btn' }
         ]
       })
-      +orderForm()
+      +servicesBlock({items: serviceItems})
+      +about(aboutData)
+      +team(teamData)
+      +order()
+      +contacts()
     //- footer
     +footer({
       company: 'LOREMIPSUM.NET',
@@ -52,4 +61,5 @@ html(lang="en")
         { icon: 'vk', name: 'Мы ВКонтакте', link: 'https://vk.com/loremipsum' }
       ]
     })
+    a(href="#body" target="_self").link-to-top вернуться наверх
     script(type="module" src="main.js")
