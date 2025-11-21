@@ -1,0 +1,122 @@
+.team {
+	width: 100%;
+	@include flex-setting(column, flex-start, flex-start);
+	gap: toRem(86);
+	padding: toRem(110) toPc(12px, 360px) toRem(55) toPc(12px, 360px);
+
+	@include min-screen(740px) {
+		gap: toRem(113);
+		padding: toRem(170) toPc(46px, 740px) toRem(100) toPc(46px, 740px);
+	}
+
+	@include min-screen(1200px) {
+		padding-left: toRem(46);
+		padding-right: toRem(46);
+	}
+
+	&__title {
+		@include font-setting(var(--primary-font), toRem(36), 110%, 500, var(--black-color));
+		text-align: left;
+
+		@include min-screen(740px) {
+			font-size: toRem(56);
+		}
+
+		@include min-screen(1200px) {
+			font-size: toRem(70);
+		}
+	}
+
+	&__list {
+		width: 100%;
+		@include flex-setting(column, flex-start, flex-start);
+		gap: toRem(64);
+
+		@include min-screen(740px) {
+			gap: toRem(114);
+		}
+	}
+
+	&__item {
+		position: relative;
+		width: 100%;
+		@include flex-setting(column, flex-start, flex-start);
+		background-color: var(--white-color);
+		padding: toRem(298) toPc(19px, 336px) toRem(68) toPc(19px, 336px);
+
+		@include min-screen(740px) {
+			padding-left: toPc(46px, 648px);
+			padding-right: toPc(46px, 648px);
+		}
+
+		@include min-screen(1200px) {
+			display: grid;
+			grid-template-columns: toRem(492) 1fr;
+			column-gap: toRem(181);
+			padding: toRem(90) toRem(50) toRem(107) 0;
+		}
+	}
+
+	&__frame {
+		position: absolute;
+		top: toRem(-34);
+		left: 0;
+
+		@include min-screen(1200px) {
+			top: toRem(-53);
+			width: toRem(492);
+			height: toRem(522);
+		}
+	}
+
+	&__data {
+		width: 100%;
+		@include flex-setting(column, flex-start, flex-start);
+
+		@include min-screen(1200px) {
+			grid-column: 2 / 3;
+		}
+	}
+
+	&__name {
+		@include font-setting(var(--primary-font), toRem(30), 110%, 500, var(--black-color));
+		margin-bottom: toRem(2);
+
+		@include min-screen(740px) {
+			font-size: toRem(40);
+			margin-bottom: toRem(3);
+		}
+	}
+
+	&__position {
+		display: inline-block;
+		margin-bottom: toRem(30);
+		@include font-setting(var(--primary-font), toRem(14), 170%, 500, var(--black-color));
+
+		@include min-screen(740px) {
+			font-size: toRem(17);
+			line-height: 160%;
+			margin-bottom: toRem(44);
+		}
+	}
+
+	&__about {
+		width: 100%;
+		@include flex-setting(column, flex-start, flex-start);
+		gap: toRem(21);
+
+		@include min-screen(740px) {
+			gap: toRem(24);
+		}
+	}
+
+	&__description {
+		@include font-setting(var(--primary-font), toRem(14), 150%, 400, var(--black-color));
+		text-align: left;
+
+		@include min-screen(1200px) {
+			font-size: toRem(15);
+			line-height: 160%;
+		}
+	}
+}

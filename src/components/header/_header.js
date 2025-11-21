@@ -28,7 +28,7 @@ export class StickyNav {
 }
 
 export class ToggleNav {
-    constructor(toggleSelector = '.header__toggle', navSelector = '.nav', bodySelector = '.body', navLinksSelector = '.nav__link') {
+    constructor(toggleSelector = '.header__toggle', navSelector = '.header__menu', bodySelector = '.body', navLinksSelector = '.nav__link') {
         this.body = document.querySelector(bodySelector);
         this.headerToggle = document.querySelector(toggleSelector);
         this.nav = document.querySelector(navSelector);
@@ -69,6 +69,12 @@ export class ToggleNav {
         this.nav.classList.toggle('is-active');
         this.body.classList.toggle('no-scroll');
         this.headerToggle.classList.toggle('is-active');
+
+        if (this.headerToggle.classList.contains('is-active')) {
+            this.headerToggle.textContent = 'закрыть меню';
+        } else {
+            this.headerToggle.textContent = '';
+        }
     }
 
     handleLinkClick() {

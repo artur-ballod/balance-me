@@ -7,15 +7,11 @@ mixin order(data = {})
     h2.order__title Как оставить заявку?
 
     .order__data
-      span.order__text.order__text--cta Просто позвоните нам по номеру
-      +button({
-        tag: 'a',
-        href: 'tel:89851561714',
-        text: '+7 985 156 17 14',
-        mod: 'link',
-        extraClass: 'order__tel',
-        attrs: { target: '_self' }
-      })
+      span.order__text.order__text--cta 
+        svg.order__text-icon
+          use(xlink:href="#icon-tel")
+        | Просто позвоните нам по номеру
+      a(href="tel:89851561714" target="_self").order__tel +7 985 156 17 14
     b.order__divider или
     ol.order__list
       li.order__item
@@ -33,12 +29,5 @@ mixin order(data = {})
       li.order__item
         p.order__text 
           | Пришлите заполненную анкету на наш email: 
-          +button({
-            tag: 'a',
-            href: 'mailto:info@balanceme.ru',
-            text: 'info@balanceme.ru',
-            mod: 'mail',
-            extraClass: 'order__text-link',
-            attrs: { target: '_self' }
-          })
+          a(href="mailto:info@balanceme.ru" target="_blank").order__text-link info@balanceme.ru 
           | и мы с вами свяжемся в кратчайшие сроки

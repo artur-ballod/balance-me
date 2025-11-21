@@ -13,6 +13,7 @@ mixin button(data = {})
       iconOnly = false,
       icon = '',
       removeIcon = '',
+      hasIcon = false
     } = data
 
     const classes = ['button']
@@ -29,7 +30,7 @@ mixin button(data = {})
         svg.button__icon
           use(xlink:href=icon)
         span.button__label= text || 'Прикрепить файл'
-        
+
   else
     button(type=type class=classString)
       if iconOnly && icon

@@ -11,6 +11,8 @@ export default defineConfig({
 		port: 3001,
 	},
 
+	base: '/balance-me/',
+
 	plugins: [
 		viteConvertPugInHtml(),
 		imagePresets({
@@ -30,6 +32,7 @@ export default defineConfig({
 			mozjpeg: { quality: 80 },
 			svgo: {
 				plugins: [
+					{ name: 'removeAttrs', params: { attrs: '(fill|stroke)' } },
 					{ name: 'removeViewBox', active: false },
 					{ name: 'removeEmptyAttrs', active: false },
 				],

@@ -7,20 +7,21 @@ mixin servicesBlock(data = {})
 		.services__head
 			h2.services__title Наши услуги
 			p.services__description Мы оказываем услуги в соответствии с самыми высокими стандартами качества, ведем учет в соответствии с новыми правилами по учету НДС, УСН и НДФЛ.
-			p.services__description Услуги, которые мы оказываем: бухгалтерия на аутсорсе, налоговый учет и СФР,  расчёт заработной платы и обязательных платежей, восстановление бухгалтерского учёта, консультации, статистическая отчетность. 
+			p.services__description Услуги, которые мы оказываем: 
+				spam.services__description--highlight бухгалтерия на аутсорсе, налоговый учет и СФР,  расчёт заработной платы и обязательных платежей, восстановление бухгалтерского учёта, консультации, статистическая отчетность. 
 		ol.services__list
 			each item in items
-				li.services__list-item
-					h3.services__subtitle= item.title
-					ul.services__sublist
+				li.services__list-item.service-item
+					h3.service-item__title= item.title
+					ul.service-item__list
 						each subitem in item.subitems
-							li.services__sublist-item= subitem
-
-					+button({
-						tag: 'a',
-						href: '#order',
-						text: 'Отправить заявку',
-						mod: 'dark',
-						extraClass: 'services__list-link',
-						attrs: { target: '_self' }
-					})
+							li.service-item__list-line= subitem
+					.service-item__bottom
+						+button({
+							tag: 'a',
+							href: '#order',
+							text: 'Отправить заявку',
+							mod: 'dark',
+							extraClass: 'service-item__link',
+							attrs: { target: '_self' }
+						})

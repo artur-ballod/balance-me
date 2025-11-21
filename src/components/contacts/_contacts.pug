@@ -10,15 +10,15 @@ mixin contacts(data = {})
 			.contacts__data
 				.contacts__line.contacts__line--address
 					b.contacts__subtitle Адрес
-					p.contacts__description Санкт-Петербург, улица Казанская, д.7, офис 4 
+					p.contacts__description Санкт-Петербург, улица&nbsp;Казанская,&nbsp;д.7,&nbsp;офис&nbsp;4 
 				.contacts__line.contacts__line--schedule
 					b.contacts__subtitle Телефон
 					a(href="tel:89851561714" target="_blank").contacts__description.contacts__description--link +7 985 156-17-14
-					p.contacts__description Пн-Пт с 9:00 до 18:00
+					p.contacts__description.contacts__description--time Пн-Пт с 9:00 до 18:00
 				.contacts__line.contacts__line--email
 					b.contacts__subtitle Email
 					a(href="mailto:info@balanceme.ru" target="_blank").contacts__description.contacts__description--link info@balanceme.ru
-					p.contacts__description Мы стремимся отвечать на все сообщения в течение 24 часов
+					p.contacts__description.contacts__description--note Мы стремимся отвечать на все сообщения в течение 24 часов
 				.contacts__line.contacts__line--social
 					b.contacts__subtitle Мы в соцсетях
 					.contacts__links
@@ -28,14 +28,6 @@ mixin contacts(data = {})
 		.contacts__bottom
 			h2.contacts__title Остались вопросы?
 			.contacts__wrap
-				.contacts__block
-					span.order__text.order__text--cta Просто позвоните нам по номеру
-					+button({
-						tag: 'a',
-						href: 'tel:89851561714',
-						text: '+7 985 156 17 14',
-						mod: 'link-lg',
-						extraClass: 'contacts__tel',
-						attrs: { target: '_self' }
-					})
-				p.contacts__info Наша команда готова помочь вам с понедельника по пятницу с 9:00 до 18:00
+				span.contacts__text.contacts__text--cta Просто позвоните нам по номеру
+				a(href="tel:89851561714" target="_self").contacts__tel +7 985 156 17 14
+				p.contacts__info Наша команда готова помочь вам с понедельника по пятницу с&nbsp;9:00&nbsp;до&nbsp;18:00

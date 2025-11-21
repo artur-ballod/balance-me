@@ -1,0 +1,220 @@
+.services {
+	width: 100%;
+    @include flex-setting(column, flex-start, flex-start);
+    padding: toRem(54) toPc(12px, 360px);
+    gap: toRem(50);
+
+	@include min-screen(740px) {
+		padding: toRem(100) toPc(46px, 740px);
+	}
+
+	@include min-screen(1200px) {
+		padding-left: toRem(46);
+		padding-right: toRem(46);
+		padding-bottom: toRem(270);
+	}
+
+	&__head {
+		width: 100%;
+		@include flex-setting(column, flex-start, flex-start);
+		gap: toRem(16);
+
+		@include min-screen(740px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			justify-content: space-between;
+			column-gap: 2vw;
+		}
+		
+		@include min-screen(1200px) {
+			column-gap: toRem(114);
+		}
+	}
+
+	&__title {
+		@include font-setting(var(--primary-font), toRem(36), 110%, 500, var(--black-color));
+        text-align: left;
+        margin-bottom: toRem(16);
+
+		@include min-screen(740px) {
+			font-size: toRem(56);
+			margin: 0;
+		}
+
+		@include min-screen(1200px) {
+			font-size: toRem(70);
+		}
+	}
+
+	&__description {
+		@include font-setting(var(--primary-font), toRem(14), 170%, 400, var(--black-color));
+        text-align: left;
+
+		@include min-screen(740px) {
+			font-size: toRem(15);
+
+			&:first-of-type {
+				grid-column: 2 / 3;
+				grid-row: 1 / 2;
+			}
+
+			&:last-of-type {
+				grid-column: 2 / 3;
+				grid-row: 2 / 3;
+			}
+		}
+
+        &--highlight {
+            font-weight: 700;
+			text-decoration: underline;
+			text-underline-offset: toRem(3);
+        }
+	}
+
+	&__list {
+		width: 100%;
+		counter-reset: num;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: toRem(30);
+
+		@include min-screen(1200px) {
+			align-items: end;
+			grid-template-columns: 1fr 1fr;
+			column-gap: toRem(84);
+			row-gap: toRem(60);
+		}
+	}
+}
+
+.service-item {
+	width: 100%;
+    position: relative;
+	@include flex-setting(column, flex-start, flex-start);
+	background-color: var(--bg-color);
+	padding: toRem(81) 0 toRem(55) 0;
+	border: toRem(1) solid var(--medium-color);
+
+	&:nth-of-type(3) {
+		background-color: var(--white-color);
+		border-color: var(--white-color);
+	}
+
+	&::after {
+        counter-increment: num;
+        content: counter(num) '';
+        position: absolute;
+        left: toRem(18);
+        top: toRem(55);
+        display: inline-block;
+        @include font-setting(var(--primary-font), toRem(14), 160%, 700, var(--medium-color));
+
+		@include min-screen(1200px) {
+			left: toRem(50);
+			font-size: toRem(17);
+		}
+    }
+
+	@include min-screen(1200px) {
+		padding: toRem(100) 0 toRem(49) 0;
+
+		&:first-of-type,
+		&:nth-of-type(2) {
+			grid-column: 1 / 3;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			justify-content: space-between;
+			column-gap: 0;
+			padding-left: toRem(49);
+			padding-top: 0;
+			padding-bottom: 0;
+
+			.service-item__title {
+				grid-column: 1 / 2;
+				grid-row: 1 / 2;
+				padding-top: toRem(100);
+				padding-left: 0;
+				padding-right: 0;
+				margin-bottom: 0;
+			}
+
+			.service-item__bottom {
+				grid-column: 1 / 2;
+				grid-row: 2 / 3;
+			}
+
+			.service-item__list {
+				grid-column: 2 / 3;
+				grid-row: 1 / 3;
+			}
+
+			.service-item__bottom {
+				align-self: end;
+				padding: 0 0 toRem(50) 0;
+				border: none;
+			}
+
+			.service-item__link {
+				width: fit-content;
+			}
+
+			.service-item__list-line:not(:first-of-type) {
+				padding-top: toRem(23);
+			}
+
+			.service-item__list-line {
+				padding: toRem(24) toRem(59) toRem(24) toRem(41);
+			}
+		}
+
+		&:nth-of-type(5),
+		&:last-of-type {
+			align-self: stretch;
+		}
+	}
+
+	&__title {
+		@include font-setting(var(--primary-font), toRem(30), 110%, 500, var(--medium-color));
+        text-align: left;
+		padding: 0 toPc(29px, 336px) 0 toPc(17px, 336px);
+		margin-bottom: toRem(38);
+
+		@include min-screen(1200px) {
+			font-size: toRem(50);
+			line-height: 118%;
+			padding-left: toRem(49);
+			padding-right: toRem(37);
+		}
+	}
+
+	&__list {
+		width: 100%;
+	}
+
+	&__list-line {
+		width: 100%;
+		padding: toRem(19) toPc(17px, 336px);
+		border-top: toRem(1) solid var(--thin-color);
+		@include font-setting(var(--primary-font), toRem(14), 150%, 400, var(--medium-color));
+
+		@include min-screen(1200px) {
+			font-size: toRem(15);
+			padding: toRem(29) toRem(30) toRem(30) toRem(49);
+		}
+	}
+
+	&__link {
+        text-align: left;
+	}
+
+	&__bottom {
+		width: 100%;
+		padding: toRem(26) toPc(39px, 336px) 0 toPc(17px, 336px);
+		border-top: toRem(1) solid var(--thin-color);
+
+		@include min-screen(1200px) {
+			padding-left: toRem(49);
+			padding-right: toRem(214);
+		}
+	}
+}

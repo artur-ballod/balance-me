@@ -5,7 +5,7 @@ mixin footer(data = {})
 
   footer.footer
     a(href="index.html" target="_self").footer__logo
-      img(src="assets/images/logo.svg" width="" height="" alt="BalanceMe")
+      img(src="assets/images/logo.png" width="158" height="29" alt="BalanceMe").footer__logo-img
     //- footer block
     .footer__policy
       ul.footer__list
@@ -31,16 +31,30 @@ mixin footer(data = {})
           li.footer__list-item
             a(href="#contacts" target="_self").footer__list-link контакты
 
-      ul.footer__list
+      ul.footer__list.footer__list--contacts
         li.footer__list-item
-          a(href="tel:89851561714" target="_blank").footer__list-link.footer__list-link--tel +7 985 156 17 14
+          a(href="tel:89851561714" target="_blank").footer__list-link.footer__list-link--tel
+            svg.footer__list-icon
+              use(xlink:href="#icon-tel")
+            | +7 985 156 17 14
         li.footer__list-item
-          a(href="mailto:info@balanceme.ru" target="_blank").footer__list-link.footer__list-link--mail info@balanceme.ru
+          a(href="mailto:info@balanceme.ru" target="_blank").footer__list-link.footer__list-link--mail 
+            svg.footer__list-icon
+              use(xlink:href="#icon-envelope")
+            | info@balanceme.ru
 
-      ul.footer__list
+      ul.footer__list.footer__list--social
         li.footer__list-item
-          a(href="" target="_blank").footer__list-icon.footer__list-icon--vk
+          a(href="" target="_blank").footer__list-link.footer__list-link--vk
+            svg.footer__list-icon
+              use(xlink:href="#icon-vk-square")
+
         li.footer__list-item
-          a(href="" target="_blank").footer__list-icon.footer__list-icon--dz info@balanceme.ru
-          
+          a(href="" target="_blank").footer__list-link.footer__list-link--dz
+            svg.footer__list-icon
+              use(xlink:href="#icon-dzen")
+    a(href="#header" target="_self").footer__top 
+      | вернуться наверх
+      svg.footer__top-icon
+        use(xlink:href="#icon-arrow-up")
     span.footer__origins разработка сайта GLADKOV COMPANY

@@ -4,7 +4,7 @@ mixin intro(data = {})
   -
     const {
       subtitle = 'Бухгалтерское обслуживание и кадровый учет',
-      description = 'At vero eos et accusamus et iusto odio dignissimos ducimus!',
+      description = 'Полное сопровождение вашей бухгалтерии. <br>Учет первичных документов, сдача отчетности, коммуникация с налоговыми органами, СФР.',
       list = [],
       controls = []
     } = data
@@ -12,7 +12,7 @@ mixin intro(data = {})
   section.intro
     .intro__data
       h1.intro__title= subtitle
-      p.intro__description= description
+      p.intro__description!= description
       .intro__controls
         each btn in controls
           +button({
@@ -23,13 +23,18 @@ mixin intro(data = {})
             extraClass: btn.extraClass,
             attrs: { target: btn.target || '_self' }
           })
-    ul.intro__list
-      each introItem in list
-        li.intro__item
-          p.intro__description!= introItem
-    picture.intro__frame.intro__frame--lg
-      source(srcset="assets/images/intro-lg.webp 1x, assets/images/intro-lg_2x.webp 2x" type="image/webp")
-      img(src="assets/images/intro-lg.png" width="" height="" alt="intro-image-1").intro__frame-img
-    picture.intro__frame.intro__frame--sm
-      source(srcset="assets/images/intro-sm.webp 1x, assets/images/intro-sm_2x.webp 2x" type="image/webp")
-      img(src="assets/images/intro-sm.png" width="" height="" alt="intro-image-2").intro__frame-img
+    .intro__details
+      ul.intro__list
+        each introItem in list
+          li.intro__item
+            p.intro__description!= introItem
+      picture.intro__frame.intro__frame--lg
+        source(media="(min-width: 1200px)" srcset="assets/images/intro-1-lg.webp 1x, assets/images/intro-1-lg_2x.webp 2x" type="image/webp")
+        source(media="(min-width: 1200px)" srcset="assets/images/intro-1-lg.png" type="image/png" width="" height="")
+        source(srcset="assets/images/intro-1-sm.webp 1x, assets/images/intro-1-sm_2x.webp 2x" type="image/webp")
+        img(src="assets/images/intro-1-sm.png" width="" height="" alt="intro-image-1").intro__frame-img
+      picture.intro__frame.intro__frame--sm
+        source(media="(min-width: 1200px)" srcset="assets/images/intro-2-lg.webp 1x, assets/images/intro-2-lg_2x.webp 2x" type="image/webp")
+        source(media="(min-width: 1200px)" srcset="assets/images/intro-2-lg.png" type="image/png" width="" height="") 
+        source(srcset="assets/images/intro-2-sm.webp 1x, assets/images/intro-2-sm_2x.webp 2x" type="image/webp")
+        img(src="assets/images/intro-2-sm.png" width="" height="" alt="intro-image-2").intro__frame-img

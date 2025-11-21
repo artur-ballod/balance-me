@@ -13,11 +13,20 @@
 @import '../components/header/header';
 @import '../components/nav/nav';
 @import '../components/intro/intro';
+@import '../components/services/_services';
+@import '../components/about/_about';
+@import '../components/team/_team';
 @import '../components/order/order';
+@import '../components/contacts/contacts';
 @import '../components/footer/footer';
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+
+  @include min-screen(1440px) {
+    font-size: 1.1111111111111vw;
+  }
 }
 
 body {
@@ -42,6 +51,7 @@ ol, ul {
 }
 
 img {
+  width: 100%;
   max-width: 100%;
   display: block;
 }
@@ -66,6 +76,13 @@ section { position: relative; }
 input,
 select,
 button { outline: none; }
+
+.body {
+}
+
+.body.no-scroll {
+  overflow: hidden;
+}
 
 .main {
   width: 100%;

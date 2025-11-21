@@ -18,12 +18,14 @@ mixin about(data = {})
 		} = data;
 	section.about
 		picture.about__frame
-			source(srcset="assets/images/about-lg.webp 1x, assets/images/about-lg_2x.webp 2x" type="image/webp")
-			img.about__frame-img(src="assets/images/about-lg.png" alt="about-image-1")
+			source(media="(min-width: 740px)" srcset="assets/images/about-lg.webp 1x, assets/images/about-lg_2x.webp 2x" type="image/webp")
+			source(media="(min-width: 740px)" srcset="assets/images/about-lg.png" type="image/png")
+			source(srcset="assets/images/about-sm.webp 1x, assets/images/about-sm_2x.webp 2x" type="image/webp")
+			img.about__frame-img(src="assets/images/about-sm.png" width="" height="" alt="about-image-1")
 		.about__data
 			h2.about__title= title
-				each desc in descriptions
-					p.about__description !{desc} 
+			each desc in descriptions
+				p.about__description !{desc} 
 			ul.about__list
 				each item in listItems
 					li.about__item

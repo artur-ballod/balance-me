@@ -15,6 +15,10 @@ html(lang="en")
     meta(name="robots" content="noindex")
     meta(name="viewport" content="width=device-width,initial-scale=1")
     script(src="https://api-maps.yandex.ru/2.1/?apikey=e777018c-96c0-4a89-840c-4fc583b8f883&lang=ru_RU" type="text/javascript" defer)
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
+
     title Бухгалтерия
   body.body
     //- header
@@ -33,10 +37,10 @@ html(lang="en")
     main.main
       +intro({
         list: [
-          'Индивидуальный подход к каждому, никакого обслуживания «на потоке».',
-          'Опыт работы более 20 лет. Ведем учет профессионально и честно.',
-          'Только законные методы налогового и кадрового учета с учётом специфики вашего бизнеса.',
-          'Мы ведем учет коммерческих и некоммерческих организаций с любыми режимами налогообложения. '
+          '<span class="intro__description--highlight">Индивидуальный подход</span> к каждому, никакого обслуживания «на потоке».',
+          'Опыт работы <span class="intro__description--highlight">более 20 лет</span>. Ведем&nbsp;учет профессионально и честно.',
+          '<span class="intro__description--highlight">Только законные методы</span> налогового и кадрового учета с учётом специфики вашего бизнеса.',
+          'Мы ведем учет <span class="intro__description--highlight">коммерческих и некоммерческих организаций</span> с любыми режимами налогообложения. '
         ],
         controls: [
           { href: '#order', text: 'Подать заявку', mod: 'dark', extraClass: 'intro__controls-btn' },
@@ -61,5 +65,5 @@ html(lang="en")
         { icon: 'vk', name: 'Мы ВКонтакте', link: 'https://vk.com/loremipsum' }
       ]
     })
-    a(href="#body" target="_self").link-to-top вернуться наверх
+  
     script(type="module" src="main.js")
