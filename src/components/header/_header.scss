@@ -1,10 +1,23 @@
 .header {
+    position: absolute;
+    top: 0;
     width: 100%;
     padding: toRem(28) toPc(11px, 360px);
-    z-index: 2;
+    z-index: 999;
 
-    @include min-screen(760px) {
-        padding: toRem(27) clamp(toPc(46px, 760px), 2vw, toPc(46px, 1440px));
+    &.fixed {
+        position: fixed;
+        top: 0;
+    }
+
+    @include min-screen(740px) {
+        padding: toRem(27) toPc(46px, 740px);
+    }
+
+    @include min-screen(1200px) {
+        background-color: var(--bg-color);
+        padding-left: toRem(46);
+        padding-right: toRem(46);
     }
 
     &__wrap {
@@ -30,6 +43,10 @@
             object-fit: contain;
         }
 
+        &.is-active {
+            display: none;
+        }
+
         @include min-screen(740px) {
             width: toRem(158);
             height: toRem(29);
@@ -41,6 +58,8 @@
         width: toRem(43);
         height: toRem(40);
         padding: 0;
+        margin-left: auto;
+        margin-right: 0;
         background-color: var(--dark-color);
         border: none;
         z-index: 5;
@@ -148,33 +167,10 @@
                 
                 @include min-screen(1200px) {
                     gap: toRem(9);
-                    padding-bottom: toRem(4.5);
-
-                    &::after {
-                        position: absolute;
-                        content: '';
-                        bottom: 0;
-                        left: 50%;
-                        transform: translateX(-50%) scaleX(0);
-                        transform-origin: center;
-                        width: calc(100% + toRem(18));
-                        height: toRem(1);
-                        background-color: var(--medium-color);
-                        transition: 0.2s var(--cubic);
-                    }
 
                     &:hover {
-                        &::after {
-                            transform: translateX(-50%) scaleX(1);
-                            transition: 0.2s var(--cubic);
-                        }
-                    }
-
-                    &:active {
-                        &::after {
-                            transform: translateX(-50%) scaleX(0.2);
-                            transition: 0.2s var(--cubic);
-                        }
+                        opacity: 0.7;
+                        transition: 0.2s var(--cubic);
                     }
                 }
 
@@ -199,6 +195,7 @@
                     width: toRem(32);
                     height: toRem(32);
                     border-color: var(--medium-color);
+                    border-width: toRem(2);
 
                     &:hover {
                         background-color: var(--medium-color);

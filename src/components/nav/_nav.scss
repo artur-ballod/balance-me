@@ -62,7 +62,7 @@
                 transform: translateX(-50%) scaleX(0);
                 transform-origin: center;
                 width: calc(100% + toRem(18));
-                height: toRem(1);
+                height: toRem(1.5);
                 background-color: var(--medium-color);
                 transition: 0.2s var(--cubic);
             }

@@ -1,20 +1,20 @@
 .intro {
     width: 100%;
     @include flex-setting(column, flex-start, flex-start);
-    padding: toRem(54) toPc(12px, 360px);
+    padding: toRem(166) toPc(12px, 360px);
     gap: toRem(34);
 
     @include min-screen(740px) {
         display: grid;
         grid-template-columns: 1fr;
-        padding: toRem(40) toPc(46px, 740px);
+        padding: toRem(152) toPc(46px, 740px) toRem(70) toPc(46px, 740px);
     }
 
     @include min-screen(1200px) {
         overflow: hidden;
         grid-template-columns: 1fr 1fr;
         gap: 0;
-        padding: toRem(192) toRem(46) toRem(70) toRem(46);
+        padding: toRem(278) toRem(46) toRem(70) toRem(46);
         margin-bottom: toRem(100);
     }
 
@@ -46,6 +46,7 @@
         @include min-screen(1200px) {
             font-size: toRem(70);
             max-width: toRem(600);
+            font-weight: 400;
         }
     }
 
@@ -88,6 +89,25 @@
                     width: fit-content;
                 }
             }
+        }
+
+        &-btn {
+            height: toRem(66);
+            @include min-screen(740px) {
+                height: toRem(72);
+            }
+            &--order {
+                width: 100%;
+                max-width: toRem(288);
+                flex-direction: row;
+                justify-content: space-between;
+                padding: toRem(23) toRem(29);
+            }
+        }
+
+        &-icon {
+            width: toRem(25);
+            height: toRem(21);
         }
     }
 

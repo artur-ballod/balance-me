@@ -16,14 +16,10 @@ mixin order(data = {})
     ol.order__list
       li.order__item
         p.order__text Скачайте анкету
-        +button({
-          tag: 'a',
-          href: 'files/document.doc',
-          text: 'Скачать анкету .doc',
-          mod: 'dark',
-          extraClass: 'order__download',
-          attrs: {download: 'MyDocument.doc', target: '_self' }
-        })
+        a(href="#" target="_self").button.button--dark.order__download
+          | Скачать анкету .doc
+          svg.order__download-icon
+            use(xlink:href="#icon-arrow-down")
       li.order__item
         p.order__text Заполните анкету
       li.order__item

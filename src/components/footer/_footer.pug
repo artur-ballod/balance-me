@@ -8,7 +8,7 @@ mixin footer(data = {})
       img(src="assets/images/logo.png" width="158" height="29" alt="BalanceMe").footer__logo-img
     //- footer block
     .footer__policy
-      ul.footer__list
+      ul.footer__list.footer__list--policy
         li.footer__list-item
           a(href="" target="_self").footer__list-link пользовательское соглашение
         li.footer__list-item
@@ -46,15 +46,8 @@ mixin footer(data = {})
       ul.footer__list.footer__list--social
         li.footer__list-item
           a(href="" target="_blank").footer__list-link.footer__list-link--vk
-            svg.footer__list-icon
-              use(xlink:href="#icon-vk-square")
 
         li.footer__list-item
           a(href="" target="_blank").footer__list-link.footer__list-link--dz
-            svg.footer__list-icon
-              use(xlink:href="#icon-dzen")
-    a(href="#header" target="_self").footer__top 
-      | вернуться наверх
-      svg.footer__top-icon
-        use(xlink:href="#icon-arrow-up")
-    span.footer__origins разработка сайта GLADKOV COMPANY
+    a(href="#body" target="_self").footer__top вернуться наверх
+    a(href="https://gladkov.company/?r=balamceme" target="_self").footer__origins разработка сайта GLADKOV COMPANY

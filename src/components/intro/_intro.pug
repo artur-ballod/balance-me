@@ -14,15 +14,11 @@ mixin intro(data = {})
       h1.intro__title= subtitle
       p.intro__description!= description
       .intro__controls
-        each btn in controls
-          +button({
-            tag: 'a',
-            href: btn.href,
-            text: btn.text,
-            mod: `${btn.mod || ''}`,
-            extraClass: btn.extraClass,
-            attrs: { target: btn.target || '_self' }
-          })
+        a(href="#order" target="_self").button.button--dark.intro__controls-btn.intro__controls-btn--order
+          | Подать заявку
+          svg.intro__controls-icon
+            use(xlink:href="#icon-arrow-right")
+        a(href="#services" target="_self").button.button--light.intro__controls-btn Наши услуги
     .intro__details
       ul.intro__list
         each introItem in list

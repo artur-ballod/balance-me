@@ -20,13 +20,13 @@ html(lang="en")
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
 
     title Бухгалтерия
-  body.body
+  body.body#body
     //- header
     +header({
       navList: [
         { name: 'Главная', link: '#header' },
         { name: 'Услуги', link: '#services' },
-        { name: 'О компании', link: 'about' },
+        { name: 'О компании', link: '#about' },
         { name: 'Команда', link: '#team' },
         { name: 'Заявка', link: '#order' },
         { name: 'Контакты', link: '#contacts' }
@@ -43,7 +43,7 @@ html(lang="en")
           'Мы ведем учет <span class="intro__description--highlight">коммерческих и некоммерческих организаций</span> с любыми режимами налогообложения. '
         ],
         controls: [
-          { href: '#order', text: 'Подать заявку', mod: 'dark', extraClass: 'intro__controls-btn' },
+          { href: '#order', text: 'Подать заявку', mod: 'dark', extraClass: 'intro__controls-btn intro__controls-btn--order' },
           { href: '#services', text: 'Наши услуги', mod: 'light', extraClass: 'intro__controls-btn' }
         ]
       })

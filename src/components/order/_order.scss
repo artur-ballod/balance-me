@@ -25,6 +25,7 @@
 
         @include min-screen(1200px) {
             font-size: toRem(70);
+            font-weight: 400;
         }
     }
 
@@ -80,6 +81,13 @@
 
         @include min-screen(1200px) {
             font-size: toRem(50);
+            font-weight: 500;
+            transition: 0.2s var(--cubic);
+            
+            &:hover {
+                opacity: 0.7;
+                transition: 0.2s var(--cubic);
+            }
         }
     }
 
@@ -95,6 +103,7 @@
         @include min-screen(1200px) {
             font-size: toRem(50);
             padding-left: toRem(79);
+            font-weight: 500;
         }
     }
 
@@ -120,8 +129,12 @@
         width: 100%;
         @include flex-setting(column, flex-start, flex-start);
         gap: toRem(20);
-        padding: toRem(82) toRem(18) toRem(20) toRem(18);
+        padding: toRem(82) toRem(18) toRem(46) toRem(18);
         background-color: var(--white-color);
+
+        &:first-of-type {
+            padding-bottom: toRem(20);
+        }
 
         @include min-screen(740px) {
             padding: toRem(126) toRem(33) toRem(37) toRem(34);
@@ -157,5 +170,12 @@
 
     &__download {
         width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &-icon {
+            width: toRem(19);
+            height: toRem(22);
+        }
     }
 }

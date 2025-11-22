@@ -3,25 +3,32 @@ mixin servicesBlock(data = {})
 		const { 
 			items = [] 
 		} = data;
-	section.services
+	section.services#services
 		.services__head
 			h2.services__title Наши услуги
 			p.services__description Мы оказываем услуги в соответствии с самыми высокими стандартами качества, ведем учет в соответствии с новыми правилами по учету НДС, УСН и НДФЛ.
 			p.services__description Услуги, которые мы оказываем: 
-				spam.services__description--highlight бухгалтерия на аутсорсе, налоговый учет и СФР,  расчёт заработной платы и обязательных платежей, восстановление бухгалтерского учёта, консультации, статистическая отчетность. 
+				span.services__description--highlight 
+					a(href="#service-1").services__description-link бухгалтерия на аутсорсе
+					|, 
+					a(href="#service-2").services__description-link налоговый учет и СФР
+					| ,  
+					a(href="#service-3").services__description-link расчёт заработной платы и обязательных платежей
+					| , 
+					a(href="#service-4").services__description-link восстановление бухгалтерского учёта
+					| , 
+					a(href="#service-5").services__description-link консультации
+					| , 
+					a(href="#service-6").services__description-link статистическая отчетность. 
 		ol.services__list
 			each item in items
-				li.services__list-item.service-item
-					h3.service-item__title= item.title
+				li(id=item.id).services__list-item.service-item
+					h3.service-item__title!= item.title
 					ul.service-item__list
 						each subitem in item.subitems
 							li.service-item__list-line= subitem
 					.service-item__bottom
-						+button({
-							tag: 'a',
-							href: '#order',
-							text: 'Отправить заявку',
-							mod: 'dark',
-							extraClass: 'service-item__link',
-							attrs: { target: '_self' }
-						})
+						a(href="#order" target="_self").button.button--dark.service-item__link
+							= item.btnText
+							svg.service-item__link-icon
+								use(xlink:href="#icon-arrow-right")

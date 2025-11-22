@@ -28,11 +28,12 @@ export class StickyNav {
 }
 
 export class ToggleNav {
-    constructor(toggleSelector = '.header__toggle', navSelector = '.header__menu', bodySelector = '.body', navLinksSelector = '.nav__link') {
+    constructor(headerLogoSelector = '.header__logo', toggleSelector = '.header__toggle', navSelector = '.header__menu', bodySelector = '.body', navLinksSelector = '.nav__link') {
         this.body = document.querySelector(bodySelector);
         this.headerToggle = document.querySelector(toggleSelector);
         this.nav = document.querySelector(navSelector);
         this.navLinks = document.querySelectorAll(navLinksSelector);
+        this.headerLogo = document.querySelector(headerLogoSelector);
 
         if (!this.headerToggle || !this.nav || !this.body) {
             console.error('Один или несколько необходимых элементов не найдены.');
@@ -69,9 +70,10 @@ export class ToggleNav {
         this.nav.classList.toggle('is-active');
         this.body.classList.toggle('no-scroll');
         this.headerToggle.classList.toggle('is-active');
+        this.headerLogo.classList.toggle('is-active');
 
         if (this.headerToggle.classList.contains('is-active')) {
-            this.headerToggle.textContent = 'закрыть меню';
+            this.headerToggle.textContent = 'Закрыть';
         } else {
             this.headerToggle.textContent = '';
         }
@@ -82,6 +84,8 @@ export class ToggleNav {
             this.nav.classList.remove('is-active');
             this.body.classList.remove('no-scroll');
             this.headerToggle.classList.remove('is-active');
+            this.headerLogo.classList.remove('is-active');
+            this.headerToggle.textContent = '';
         }
     }
 

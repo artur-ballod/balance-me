@@ -30,6 +30,7 @@
 
 		@include min-screen(1200px) {
 			font-size: toRem(70);
+			font-weight: 400;
 		}
 	}
 
@@ -132,11 +133,38 @@
 	
 		&--link {
 			text-decoration: none;
+
+			@include min-screen(1200px) {
+				position: relative;
+				width: fit-content;
+				padding-bottom: toRem(2);
+
+				&::after {
+                    position: absolute;
+                    content: '';
+                    height: toRem(1.5);
+                    width: calc(100% + 1.125rem);
+                    bottom: 0;
+                    left: 0;
+                    background-color: currentColor;
+                    transform-origin: left;
+                    transform: scaleX(0);
+                    transition: 0.2s ease-in;
+                }
+
+                &:hover {
+                    &::after {
+                        transform: scaleX(1);
+                        transition: 0.2s ease-out;
+                    }
+                }
+			}
 		}
 
 		@include min-screen(740px) {
 			font-size: toRem(17);
 			line-height: 160%;
+			font-weight: 300;
 		}
 	}
 
@@ -198,6 +226,10 @@
 	&__text {
 		@include font-setting(var(--primary-font), toRem(14), 170%, 400, var(--white-color));
 
+		&--cta {
+			margin-bottom: toRem(12);
+		}
+
 		@include min-screen(740px) {
 			font-size: toRem(17);
 			line-height: 160%;
@@ -223,6 +255,13 @@
 			grid-row: 2 / 3;
 			font-size: toRem(50);
 			margin-bottom: 0;
+			font-weight: 500;
+			transition: 0.2s var(--cubic);
+            
+            &:hover {
+                opacity: 0.7;
+                transition: 0.2s var(--cubic);
+            }
 		}
 	}
 
